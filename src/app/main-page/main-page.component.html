@@ -1,0 +1,53 @@
+<!--<div class="heading-section"></div>-->
+
+<div class="container">
+  <div class="add-todo-box">
+    <div class="header">
+      <button routerLink="menu">
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+      </button>
+    </div>
+    <!--form textarea to add tasks-->
+    <form>
+      <div class="field">
+        <div class="control">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="write your task here"
+              id="floatingTextarea2"
+              style="height: 100px"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <!--tasks button-->
+      <div class="task-button">
+        <p>tasks</p>
+        <button routerLink="add">
+          <i class="fa fa-plus" aria-hidden="true"></i> ADD TASK
+        </button>
+      </div>
+
+      <div class="card my-3 mx-3" *ngFor="let item of data">
+        <div class="card-body">
+          <h6>{{ item.name }}</h6>
+          <p>
+            <span>{{ item.description }}</span>
+            <input
+              disabled
+              type="checkbox"
+              checked
+              *ngIf="item.checked === true"
+            />
+            <input disabled type="checkbox" *ngIf="item.checked === false" />
+          </p>
+          <p>
+            <input disabled type="date" value="{{ item.date.split('T')[0] }}" />
+          </p>
+          <button>Go To Task Page</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
