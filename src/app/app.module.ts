@@ -15,16 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainPageComponent,
     AddTaskComponent,
     MenuTaskComponent,
-   
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgbModule
-
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

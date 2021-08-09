@@ -8,19 +8,7 @@
       </button>
     </div>
     <!--form textarea to add tasks-->
-    <form>
-      <div class="field">
-        <div class="control">
-          <div class="form-floating">
-            <textarea
-              class="form-control"
-              placeholder="write your task here"
-              id="floatingTextarea2"
-              style="height: 100px"
-            ></textarea>
-          </div>
-        </div>
-      </div>
+    <div>
       <!--tasks button-->
       <div class="task-button">
         <p>tasks</p>
@@ -31,6 +19,7 @@
 
       <div class="card my-3 mx-3" *ngFor="let item of data">
         <div class="card-body">
+          <input type="hidden" #itemID value="{{ item._id }}" />
           <h6>{{ item.name }}</h6>
           <p>
             <span>{{ item.description }}</span>
@@ -45,9 +34,12 @@
           <p>
             <input disabled type="date" value="{{ item.date.split('T')[0] }}" />
           </p>
-          <button>Go To Task Page</button>
+          <button class="btn btn-primary">Go to Page</button>
+          <button class="btn btn-danger" (click)="delete(itemID.value)">
+            Delete
+          </button>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>

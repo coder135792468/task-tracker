@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -9,5 +9,23 @@ export class TasksService {
   getData() {
     let url = 'https://task-tracker-api-v1.herokuapp.com/api/task';
     return this.http.get(url);
+  }
+
+  deleteTasks(task: Task) {
+    return this.http.delete(
+      `https://task-tracker-api-v1.herokuapp.com/api/task/${task}`
+    );
+  }
+
+  addTask(task: any) {
+    return this.http.post(
+      'https://task-tracker-api-v1.herokuapp.com/api/task',
+      task,
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      }
+    );
   }
 }

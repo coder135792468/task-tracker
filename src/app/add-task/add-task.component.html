@@ -10,6 +10,7 @@
   <div class="add-task">
     <input
       type="text"
+      #heading
       class="form-control"
       id="exampleFormControlInput1"
       placeholder="Enter Task Heading"
@@ -18,11 +19,27 @@
       <label for="exampleFormControlTextarea1" class="form-label">Task:</label>
       <textarea
         class="form-control"
+        #description
         id="exampleFormControlTextarea1"
         placeholder="Enter Task..."
         rows="3"
       ></textarea>
     </div>
-    <button class="save">Save</button>
+    <div class="mb-3 optional-data">
+      <input #date type="date" />
+    </div>
+
+    <button
+      class="save"
+      (click)="
+        data({
+          name: heading.value,
+          description: description.value,
+          date: date.value
+        })
+      "
+    >
+      Save
+    </button>
   </div>
 </div>
