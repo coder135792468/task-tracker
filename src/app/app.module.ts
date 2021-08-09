@@ -8,6 +8,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { MenuTaskComponent } from './menu-task/menu-task.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TaskItemComponent } from './task-item/task-item.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainPageComponent,
     AddTaskComponent,
     MenuTaskComponent,
+    TaskItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],

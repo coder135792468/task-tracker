@@ -1,0 +1,11 @@
+nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+nav strong {
+  margin: 0 auto;
+}
+.card .card-content {
+  padding: 10px;
+}

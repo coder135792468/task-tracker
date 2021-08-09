@@ -10,6 +10,10 @@ export class TasksService {
     let url = 'https://task-tracker-api-v1.herokuapp.com/api/task';
     return this.http.get(url);
   }
+  getDataById(taskId: string) {
+    let url = `https://task-tracker-api-v1.herokuapp.com/api/task/${taskId}`;
+    return this.http.get(url);
+  }
 
   deleteTasks(task: Task) {
     return this.http.delete(

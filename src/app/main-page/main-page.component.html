@@ -16,6 +16,11 @@
           <i class="fa fa-plus" aria-hidden="true"></i> ADD TASK
         </button>
       </div>
+      <div class="card text-center">
+        <div [ngStyle]="{ 'font-size': '20px' }" class="card-content">
+          {{ loading }}
+        </div>
+      </div>
 
       <div class="card my-3 mx-3" *ngFor="let item of data">
         <div class="card-body">
@@ -34,7 +39,9 @@
           <p>
             <input disabled type="date" value="{{ item.date.split('T')[0] }}" />
           </p>
-          <button class="btn btn-primary">Go to Page</button>
+          <button class="btn btn-primary" (click)="goto(itemID.value)">
+            Go to Page
+          </button>
           <button class="btn btn-danger" (click)="delete(itemID.value)">
             Delete
           </button>
