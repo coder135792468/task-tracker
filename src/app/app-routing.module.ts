@@ -11,16 +11,16 @@ const routes: Routes = [
     component: MainPageComponent,
   },
   {
+    path: 'task/:id',
+    component: TaskItemComponent,
+  },
+  {
     path: 'add',
     component: AddTaskComponent,
   },
   {
     path: 'menu',
     component: MenuTaskComponent,
-  },
-  {
-    path: 'task/:id',
-    component: TaskItemComponent,
   },
 ];
 

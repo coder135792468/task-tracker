@@ -20,7 +20,10 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {}
   goto(value: any) {
-    window.location.href = `/task/${value}`;
+    let url = `/task/${value}`;
+
+    this.location.go(url);
+    window.location.reload();
     // this.location.go(`/task/${value}`);
   }
   async delete(value: any) {
