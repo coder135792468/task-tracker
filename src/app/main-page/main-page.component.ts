@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
 export class MainPageComponent implements OnInit {
   data: any;
   loading: string = 'Loading...';
+  filter: any = null;
   constructor(private task: TasksService, private location: Location) {
     this.task.getData().subscribe((data) => {
       // console.warn(data);
@@ -21,15 +22,23 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {}
   goto(value: any) {
     let url = `/task/${value}`;
-
-    this.location.go(url);
-    window.location.reload();
-    // this.location.go(`/task/${value}`);
+    window.location.href = url;
   }
-  async delete(value: any) {
-    await this.task.deleteTasks(value).subscribe(() => {
+  searchTask(text: string) {
+    if (text.trim().length === 0) {
+      this.filter = null;
+      return;
+    }
+    this.filter = this.data.filter((task: any) =>
+      task.name.match(new RegExp(`${text}`, 'gi'))
+    );
+  }
+
+  delete(value: any) {
+    this.data = this.data.filter((task: any) => task._id !== value);
+
+    this.task.deleteTasks(value).subscribe(() => {
       alert('Task deleted successfully!!!');
     });
-    window.location.reload();
   }
 }

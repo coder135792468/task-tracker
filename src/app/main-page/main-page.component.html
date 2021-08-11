@@ -3,8 +3,14 @@
 <div class="container">
   <div class="add-todo-box">
     <div class="header">
-      <button routerLink="menu">
-        <i class="fa fa-list-ul" aria-hidden="true"></i>
+      <input
+        #text
+        type="search"
+        class="form-control"
+        placeholder="Search task..."
+      />
+      <button class="btn btn-primary" (click)="searchTask(text.value)">
+        Search
       </button>
     </div>
     <!--form textarea to add tasks-->
@@ -21,30 +27,67 @@
           {{ loading }}
         </div>
       </div>
-
-      <div class="card my-3 mx-3" *ngFor="let item of data">
-        <div class="card-body">
-          <input type="hidden" #itemID value="{{ item._id }}" />
-          <h6>{{ item.name }}</h6>
-          <p>
-            <span>{{ item.description }}</span>
-            <input
-              disabled
-              type="checkbox"
-              checked
-              *ngIf="item.checked === true"
-            />
-            <input disabled type="checkbox" *ngIf="item.checked === false" />
-          </p>
-          <p>
-            <input disabled type="date" value="{{ item.date.split('T')[0] }}" />
-          </p>
-          <button class="btn btn-primary" (click)="goto(itemID.value)">
-            Go to Page
-          </button>
-          <button class="btn btn-danger" (click)="delete(itemID.value)">
-            Delete
-          </button>
+      <div *ngIf="this.filter == null">
+        <div class="card my-3 mx-3" *ngFor="let item of data">
+          <div class="card-body">
+            <input type="hidden" #itemID value="{{ item._id }}" />
+            <h6>{{ item.name }}</h6>
+            <p>
+              <span>{{ item.description }}</span>
+              <input
+                disabled
+                type="checkbox"
+                checked
+                *ngIf="item.checked === true"
+              />
+              <input disabled type="checkbox" *ngIf="item.checked === false" />
+            </p>
+            <p>
+              <input
+                disabled
+                type="date"
+                value="{{ item.date.split('T')[0] }}"
+              />
+            </p>
+            <button class="btn btn-primary" (click)="goto(itemID.value)">
+              Go to Page
+            </button>
+            <button class="btn btn-danger" (click)="delete(itemID.value)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- //show if filter itemi available -->
+      <div *ngIf="this.filter !== null">
+        <div class="card my-3 mx-3" *ngFor="let item of filter">
+          <div class="card-body">
+            <input type="hidden" #itemID value="{{ item._id }}" />
+            <h6>{{ item.name }}</h6>
+            <p>
+              <span>{{ item.description }}</span>
+              <input
+                disabled
+                type="checkbox"
+                checked
+                *ngIf="item.checked === true"
+              />
+              <input disabled type="checkbox" *ngIf="item.checked === false" />
+            </p>
+            <p>
+              <input
+                disabled
+                type="date"
+                value="{{ item.date.split('T')[0] }}"
+              />
+            </p>
+            <button class="btn btn-primary" (click)="goto(itemID.value)">
+              Go to Page
+            </button>
+            <button class="btn btn-danger" (click)="delete(itemID.value)">
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

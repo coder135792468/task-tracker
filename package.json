@@ -9,6 +9,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "client": "ng serve --open",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod"
@@ -42,6 +44,7 @@
     "@angular/compiler-cli": "~12.1.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "concurrently": "^6.2.1",
     "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
