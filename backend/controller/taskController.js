@@ -28,7 +28,7 @@ const addnewTask = asyncHandler(async (req, res) => {
   const task = new Task();
   task.name = req.body.name || "untitled";
   task.description = req.body.description || "Sample description";
-  if (re.body.date) {
+  if (req.body.date) {
     task.date = req.body.date;
   }
   const createdTask = await task.save();
@@ -58,3 +58,4 @@ const deleteTask = asyncHandler(async (req, res) => {
 });
 
 export { getAllTasks, getTaskById, updateTask, deleteTask, addnewTask };
+ 
