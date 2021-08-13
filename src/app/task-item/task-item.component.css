@@ -6,6 +6,35 @@ nav {
 nav strong {
   margin: 0 auto;
 }
+
 .card .card-content {
   padding: 10px;
+}
+
+.form-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+.form-group * {
+  margin-top: 10px;
+}
+.form-group .card-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+.form-group .card-content input {
+  border: 1px solid #ccc;
+}
+.form-group button {
+  float: right;
+}
+.card-body p {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
