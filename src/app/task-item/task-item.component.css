@@ -22,6 +22,7 @@ nav {
 nav strong {
   margin: 0 auto;
 }
+
 .card{
   margin: 20px;
   background: rgba( 255, 251, 254, 0.80 );
@@ -31,9 +32,12 @@ nav strong {
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
+
+
 .card .card-content {
   padding: 10px;
 }
+
 /**
 .form-group {
   position: absolute;
@@ -41,6 +45,7 @@ nav strong {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
+<<<<<<< HEAD
  
 }
 */
@@ -61,12 +66,18 @@ h4{
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+.form-group * {
+  margin-top: 10px;
+
 }
 .form-group .card-content {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 10px;
+
  
 }
 .form-control::-webkit-scrollbar{
@@ -107,6 +118,14 @@ box-shadow: 0px 6px 6px rgba(0,0,0,0.1);
 box-shadow: #fff 100px 0 0 2px inset;
 color: rgba(37, 6, 122, 0.897);
 border: 3px solid white; 
+
+}
+.form-group .card-content input {
+  border: 1px solid #ccc;
+}
+.form-group button {
+  float: right;
+
 }
 .card-body p {
   display: flex;

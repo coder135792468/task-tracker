@@ -1,3 +1,4 @@
+
 <div class="container">
   <nav>
     <span (click)="gotoHome()" class="fa fa-arrow-left"></span>
@@ -11,13 +12,15 @@
     <div class="card-content">{{ data.description }}</div>
     <div class="card-body">
       <p>
+        <input disabled type="checkbox" *ngIf="data.checked === false" />
+        <input disabled type="checkbox" checked *ngIf="data.checked === true" />
         <input disabled type="date" value="{{ data.date.split('T')[0] }}" />
       </p>
     </div>
   </div>
   
   <div class="form-group" *ngIf="this.edit === true">
-    <h4>Update Task</h4>
+    <h4 align="center">Update Task Form</h4>
     <input
       type="text"
       #updatedName
@@ -34,7 +37,8 @@
     </textarea>
     <div class="card-content">
       <input type="date" value="{{ data.date.split('T')[0] }}" #updatedDate />
-    <input type="checkbox" #updatedStatus />
+      <input type="checkbox" #updatedStatus />
+    </div>
     <button
       class="btn btn-primary"
       (click)="
@@ -46,6 +50,9 @@
         })
       "
     >
-      Update
+      Update Task
     </button>
   </div>
+
+</div>
+
