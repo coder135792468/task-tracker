@@ -32,4 +32,15 @@ export class TasksService {
       }
     );
   }
+  updateTask(task: any, id: any) {
+    return this.http.put(
+      `https://task-tracker-webapp-v1.herokuapp.com/api/task/${id}`,
+      task,
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      }
+    );
+  }
 }

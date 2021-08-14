@@ -1,13 +1,19 @@
+<!--add tasks page-->
 <div class="container">
-  <div class="header">
+  <!--add tasks header-->
+  <div class="nav">
+    <!--back button to main page-->
     <button class="back">
-      <a class="back" routerLink=""
-        ><i class="fa fa-angle-left" aria-hidden="true"></i
-      ></a>
+      <!--routelink added of main-page-->
+      <a class="back" routerLink="">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </a>
     </button>
     <h6>Add a Task</h6>
   </div>
+  <!--add the tasks-->
   <div class="add-task">
+    <!--add tasks heading-->
     <input
       type="text"
       #heading
@@ -15,6 +21,7 @@
       id="exampleFormControlInput1"
       placeholder="Enter Task Heading"
     />
+    <!--add tasks-->
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Task:</label>
       <textarea
@@ -22,13 +29,16 @@
         #description
         id="exampleFormControlTextarea1"
         placeholder="Enter Task..."
-        rows="3"
-      ></textarea>
+        rows="3">
+      </textarea>
     </div>
+    <!--add tasks date-->
     <div class="mb-3 optional-data">
-      <input #date type="date" />
+      <div class="date">
+        <input #date type="date" />
+      </div>  
     </div>
-
+    <!--save the tasks-->
     <button
       class="save"
       (click)="

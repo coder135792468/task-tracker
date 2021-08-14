@@ -1,10 +1,51 @@
-<nav>
-  <span (click)="gotoHome()" class="fa fa-arrow-left"></span>
-  <strong>Task Description</strong>
-</nav>
-<div class="card">
-  <div class="card-header">
-    <strong>{{ data.name }}</strong>
+<div class="container">
+  <nav>
+    <span (click)="gotoHome()" class="fa fa-arrow-left"></span>
+    <strong>Task Description</strong>
+    <span (click)="toggle()" class="fa fa-edit"></span>
+  </nav>
+  <div class="card" *ngIf="this.edit === false">
+    <div class="card-header">
+      <strong>{{ data.name }}</strong>
+    </div>
+    <div class="card-content">{{ data.description }}</div>
+    <div class="card-body">
+      <p>
+        <input disabled type="date" value="{{ data.date.split('T')[0] }}" />
+      </p>
+    </div>
   </div>
-  <div class="card-content">{{ data.description }}</div>
-</div>
+  
+  <div class="form-group" *ngIf="this.edit === true">
+    <h4>Update Task</h4>
+    <input
+      type="text"
+      #updatedName
+      class="form-control"
+      value="{{ data.name }}"
+      placeholder="Enter New Heading"
+    />
+    <textarea
+      #updatedDescription
+      placeholder="Enter Task Description"
+      class="form-control"
+    >
+      {{ data.description }}
+    </textarea>
+    <div class="card-content">
+      <input type="date" value="{{ data.date.split('T')[0] }}" #updatedDate />
+    <input type="checkbox" #updatedStatus />
+    <button
+      class="btn btn-primary"
+      (click)="
+        updateTask({
+          name: updatedName.value,
+          description: updatedDescription.value,
+          date: updatedDate.value,
+          checked: updatedStatus.checked
+        })
+      "
+    >
+      Update
+    </button>
+  </div>

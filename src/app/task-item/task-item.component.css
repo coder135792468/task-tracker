@@ -1,11 +1,115 @@
+.container{
+  max-width: 800px;
+  max-height: 90vh;
+  box-shadow: 0px 4px 12px rgba(black, 0.8);
+  background: #3494E6;  
+  background: -webkit-linear-gradient(to left, #EC6EAD, #3494E6);  
+  background: linear-gradient(to left, #EC6EAD, #3494E6);
+}
 nav {
+  color: rgba(37, 6, 122, 0.897);
   padding: 10px;
   display: flex;
   justify-content: space-around;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: rgba( 255, 251, 254, 0.80 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 nav strong {
   margin: 0 auto;
 }
+.card{
+  margin: 20px;
+  background: rgba( 255, 251, 254, 0.80 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 .card .card-content {
   padding: 10px;
+}
+/**
+.form-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+ 
+}
+*/
+h4{
+  color: #fff;
+  text-shadow: 2px 3px 4px pink;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.form-group * {
+  margin-top: 10px;
+  
+}
+.form-group .form-control{
+  background: rgba( 255, 251, 254, 0.80 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.form-group .card-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+ 
+}
+.form-control::-webkit-scrollbar{
+  display: none;
+}
+.form-group .card-content input {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background: rgba( 255, 251, 254, 0.80 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.form-group button {
+  float: right;
+  color: rgba(37, 6, 122, 0.897);
+  border-radius: 4px;
+  border: 2px solid #fff;
+  padding: 5px 20px;
+  transition: all .5s;
+  background-color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 10px;
+  outline: none;
+  width: 100px;
+  height: 40px;
+}
+.form-group button:active{
+transform: scale(0.8);
+box-shadow: 0px 6px 6px rgba(0,0,0,0.1);
+}
+.form-group button:hover {
+box-shadow: #fff 100px 0 0 2px inset;
+color: rgba(37, 6, 122, 0.897);
+border: 3px solid white; 
+}
+.card-body p {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

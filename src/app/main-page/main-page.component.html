@@ -1,92 +1,64 @@
-<!--<div class="heading-section"></div>-->
-
+<!--main page-->
 <div class="container">
   <div class="add-todo-box">
+    <!--main page header-->
     <div class="header">
-      <input
+      <!--search tasks by its heading name-->           
+        <input
         #text
         type="search"
         class="form-control"
         placeholder="Search task..."
       />
-      <button class="btn btn-primary" (click)="searchTask(text.value)">
-        Search
+      <!--search tasks button-->
+      <button class="btn" (click)="searchTask(text.value)">
+        <i class="fa fa-search" aria-hidden="true"></i>
       </button>
-    </div>
-    <!--form textarea to add tasks-->
+    </div> 
+    <!--tasks button-->
     <div>
-      <!--tasks button-->
       <div class="task-button">
         <p>tasks</p>
         <button routerLink="add">
           <i class="fa fa-plus" aria-hidden="true"></i> ADD TASK
         </button>
       </div>
+      <!--cards-->
       <div class="card text-center">
         <div [ngStyle]="{ 'font-size': '20px' }" class="card-content">
           {{ loading }}
         </div>
       </div>
+      <!--cards that show tasks data-->
       <div *ngIf="this.filter == null">
         <div class="card my-3 mx-3" *ngFor="let item of data">
-          <div class="card-body">
+          <div class="card-body">  
             <input type="hidden" #itemID value="{{ item._id }}" />
+            <!--display tasks heading-->
             <h6>{{ item.name }}</h6>
+            <!--display tasks description-->
             <p>
               <span>{{ item.description }}</span>
-              <input
-                disabled
-                type="checkbox"
-                checked
-                *ngIf="item.checked === true"
-              />
-              <input disabled type="checkbox" *ngIf="item.checked === false" />
             </p>
-            <p>
+            <!--view task date-->
+            <p class="date">
               <input
-                disabled
-                type="date"
-                value="{{ item.date.split('T')[0] }}"
-              />
+              disabled
+              type="date"
+              value="{{ item.date.split('T')[0] }}"
+            />
             </p>
-            <button class="btn btn-primary" (click)="goto(itemID.value)">
-              Go to Page
-            </button>
-            <button class="btn btn-danger" (click)="delete(itemID.value)">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- //show if filter itemi available -->
-      <div *ngIf="this.filter !== null">
-        <div class="card my-3 mx-3" *ngFor="let item of filter">
-          <div class="card-body">
-            <input type="hidden" #itemID value="{{ item._id }}" />
-            <h6>{{ item.name }}</h6>
-            <p>
-              <span>{{ item.description }}</span>
-              <input
-                disabled
-                type="checkbox"
-                checked
-                *ngIf="item.checked === true"
-              />
-              <input disabled type="checkbox" *ngIf="item.checked === false" />
-            </p>
-            <p>
-              <input
-                disabled
-                type="date"
-                value="{{ item.date.split('T')[0] }}"
-              />
-            </p>
-            <button class="btn btn-primary" (click)="goto(itemID.value)">
-              Go to Page
-            </button>
-            <button class="btn btn-danger" (click)="delete(itemID.value)">
-              Delete
-            </button>
+            <!--buttons-->
+            <div class="buttons">
+              <!--tasks information button-->
+              <button class="btn-info" (click)="goto(itemID.value)">
+                <i class="fa fa-list-alt" aria-hidden="true"></i><br>Task Information
+              </button>
+              <!--delete tasks button-->
+              <button class="btn-del" (click)="delete(itemID.value)">
+                <i class="fa fa-trash" aria-hidden="true"></i><br> Delete Task
+              </button>
+            </div>
           </div>
         </div>
       </div>
