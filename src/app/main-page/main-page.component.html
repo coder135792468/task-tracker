@@ -3,8 +3,8 @@
   <div class="add-todo-box">
     <!--main page header-->
     <div class="header">
-      <!--search tasks by its heading name-->           
-        <input
+      <!--search tasks by its heading name-->
+      <input
         #text
         type="search"
         class="form-control"
@@ -14,7 +14,7 @@
       <button class="btn" (click)="searchTask(text.value)">
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
-    </div> 
+    </div>
     <!--tasks button-->
     <div>
       <div class="task-button">
@@ -29,10 +29,10 @@
           {{ loading }}
         </div>
       </div>
-      <!--cards that show tasks data-->
-      <div *ngIf="this.filter == null">
+
+      <div *ngIf="this.filter === null">
         <div class="card my-3 mx-3" *ngFor="let item of data">
-          <div class="card-body">  
+          <div class="card-body">
             <input type="hidden" #itemID value="{{ item._id }}" />
             <!--display tasks heading-->
             <h6>{{ item.name }}</h6>
@@ -43,20 +43,57 @@
             <!--view task date-->
             <p class="date">
               <input
-              disabled
-              type="date"
-              value="{{ item.date.split('T')[0] }}"
-            />
+                disabled
+                type="date"
+                value="{{ item.date.split('T')[0] }}"
+              />
             </p>
             <!--buttons-->
             <div class="buttons">
               <!--tasks information button-->
               <button class="btn-info" (click)="goto(itemID.value)">
-                <i class="fa fa-list-alt" aria-hidden="true"></i><br>Task Information
+                <i class="fa fa-list-alt" aria-hidden="true"></i><br />Task
+                Information
               </button>
               <!--delete tasks button-->
               <button class="btn-del" (click)="delete(itemID.value)">
-                <i class="fa fa-trash" aria-hidden="true"></i><br> Delete Task
+                <i class="fa fa-trash" aria-hidden="true"></i><br />
+                Delete Task
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--cards that show tasks data-->
+      <div *ngIf="this.filter !== null">
+        <div class="card my-3 mx-3" *ngFor="let item of filter">
+          <div class="card-body">
+            <input type="hidden" #itemID value="{{ item._id }}" />
+            <!--display tasks heading-->
+            <h6>{{ item.name }}</h6>
+            <!--display tasks description-->
+            <p>
+              <span>{{ item.description }}</span>
+            </p>
+            <!--view task date-->
+            <p class="date">
+              <input
+                disabled
+                type="date"
+                value="{{ item.date.split('T')[0] }}"
+              />
+            </p>
+            <!--buttons-->
+            <div class="buttons">
+              <!--tasks information button-->
+              <button class="btn-info" (click)="goto(itemID.value)">
+                <i class="fa fa-list-alt" aria-hidden="true"></i><br />Task
+                Information
+              </button>
+              <!--delete tasks button-->
+              <button class="btn-del" (click)="delete(itemID.value)">
+                <i class="fa fa-trash" aria-hidden="true"></i><br />
+                Delete Task
               </button>
             </div>
           </div>

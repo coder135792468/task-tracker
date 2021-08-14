@@ -32,6 +32,7 @@ export class MainPageComponent implements OnInit {
     this.filter = this.data.filter((task: any) =>
       task.name.match(new RegExp(`${text}`, 'gi'))
     );
+    console.log(this.filter);
   }
 
   delete(value: any) {
